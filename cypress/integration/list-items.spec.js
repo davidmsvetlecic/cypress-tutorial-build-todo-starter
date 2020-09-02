@@ -12,8 +12,22 @@ describe('List item', () => {
       .should('be.checked')
   })
 
-  it.only('show remaining todos count in the footer', () => {
+  it('show remaining todos count in the footer', () => {
     cy.get('.todo-count')
       .should('contain', 3)
+  })
+
+  it.only('remove a todo', () => {
+    cy.route({
+      url: '/api/todos/1',
+      method: 'DELETE',
+      status: 200,
+      response: {}
+    })
+
+    cy.get('.todo-list li')
+      .first()
+      .find('.destroy')
+      .click({force: true}) 
   })
 })
