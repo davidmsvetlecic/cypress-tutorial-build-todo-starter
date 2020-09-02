@@ -1,8 +1,6 @@
 describe('App initialization', () => {
-  it.only('load todos on page load', () => {
-    cy.server()
-    cy.route('GET', '/api/todos', 'fixture:todos')
-    cy.visit('/')
+  it('load todos on page load', () => {
+    cy.seedAndVisit()
 
     cy.get('.todo-list li')
       .should('have.length', 4)
