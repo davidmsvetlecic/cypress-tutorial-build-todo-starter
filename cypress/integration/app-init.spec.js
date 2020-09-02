@@ -6,7 +6,7 @@ describe('App initialization', () => {
       .should('have.length', 4)
   })
 
-  it.only('display an error on failure', () => {
+  it('display an error on failure', () => {
     cy.server()
     cy.route({
       url: '/api/todos',
