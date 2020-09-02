@@ -28,6 +28,7 @@ describe('List item', () => {
     cy.get('.todo-list li')
       .first()
       .find('.destroy')
-      .click({force: true}) 
+      .invoke('show')
+      .click() 
   })
 })
