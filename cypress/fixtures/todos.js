@@ -1,22 +1,22 @@
 [
   {
     id: 1,
-    name: 'Buy Milk',
+    name: "Buy Milk",
     isComplete: false,
   },
   {
     id: 2,
-    name: 'Buy Eggs',
+    name: "Buy Eggs",
     isComplete: true,
   },
   {
     id: 3,
-    name: 'Buy Bread',
+    name: "Buy Bread",
     isComplete: false,
   },
   {
     id: 4,
-    name: 'Make French Toast',
+    name: "Make French Toast",
     isComplete: false,
-  }
+  },
 ]
