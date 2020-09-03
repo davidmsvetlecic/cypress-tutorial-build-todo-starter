@@ -1,25 +1,22 @@
-describe('App initialization', () => {
-  it('load todos on page load', () => {
-    cy.seedAndVisit()
+describe("App initialization", () => {
+  it("load todos on page load", () => {
+    cy.seedAndVisit();
 
-    cy.get('.todo-list li')
-      .should('have.length', 4)
-  })
+    cy.get(".todo-list li").should("have.length", 4);
+  });
 
-  it('display an error on failure', () => {
-    cy.server()
+  it("display an error on failure", () => {
+    cy.server();
     cy.route({
-      url: '/api/todos',
-      method: 'GET',
+      url: "/api/todos",
+      method: "GET",
       status: 500,
-      response: {}
-    })
-    cy.visit('/')
+      response: {},
+    });
+    cy.visit("/");
 
-    cy.get('.todo-list li')
-      .should('not.exist')
+    cy.get(".todo-list li").should("not.exist");
 
-    cy.get('.error')
-      .should('be.visible')
-  })
-})
+    cy.get(".error").should("be.visible");
+  });
+});
