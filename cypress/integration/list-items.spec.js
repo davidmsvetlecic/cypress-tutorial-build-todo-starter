@@ -27,4 +27,18 @@ describe("List item", () => {
     cy.get("@list").first().find(".destroy").invoke("show").click();
     cy.get("@list").should("have.length", 3).and("not.contain", "Milk");
   });
+
+  it("mark an incomplete item complete", () => {
+    cy.fixture("todos").then((todos) => {
+      const target = todos[0];
+      cy.route("PUT", `/api/todos/${target.id}`, {
+        ...target,
+        isComplete: true,
+      });
+    });
+    cy.get(".todo-list li").first().as("first-todo");
+    cy.get("@first-todo").find(".toggle").click().should("be.checked");
+    cy.get("@first-todo").should("have.class", "completed");
+    cy.get(".todo-count").should("contain", 2);
+  });
 });
